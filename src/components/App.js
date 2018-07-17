@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
-import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="row">
+        <div className="col" style={{flex: 1}}>
+          <div className="row center">
+            <div className="col">
+              <div className="box">
+                <h1 className={styles.title}>El Juego de la Vida</h1>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+const styles = {
+  title: {
+    fontSize: '1.5em',
+  },
+};
 
 export default App;
