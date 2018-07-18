@@ -17,7 +17,7 @@ class Board extends Component {
   }
 
   render() {
-    const { board } = this.props;
+    const { board, isGameRunning } = this.props;
 
     if (board.length === 0) {
       return (
@@ -32,7 +32,7 @@ class Board extends Component {
             <div key={yPos} className="row">
               {row.map((cell, xPos) => (
                 <div key={xPos} className="col">
-                  <Cell xPos={xPos} yPos={yPos} />
+                  <Cell isGameRunning={isGameRunning} xPos={xPos} yPos={yPos} />
                 </div>
               ))}
             </div>

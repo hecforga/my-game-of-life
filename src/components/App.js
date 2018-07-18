@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+
+import { isGameRunning } from '../reducers';
+import * as actions from '../actions';
 
 import Board from './Board';
+import ControlsContainer from './ControlsContainer';
 
 class App extends Component {
   render() {
+    const { isGameRunning } = this.props;
+
     return (
       <div className="row">
         <div className="col" style={{flex: 1}}>
@@ -15,11 +22,15 @@ class App extends Component {
             </div>
           </div>
 
+          <div className="row center" style={styles.board}>
+            <div className="col">
+              <Board isGameRunning={isGameRunning} />
+            </div>
+          </div>
+
           <div className="row center">
             <div className="col">
-              <div className="box">
-                <Board />
-              </div>
+              <ControlsContainer />
             </div>
           </div>
         </div>
@@ -32,6 +43,16 @@ const styles = {
   title: {
     fontSize: '1.5em',
   },
+  board: {
+    marginBottom: 16,
+  },
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  isGameRunning: isGameRunning(state)
+});
+
+export default connect(
+  mapStateToProps,
+  actions,
+)(App);

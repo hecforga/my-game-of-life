@@ -2,6 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {createLogger} from 'redux-logger';
 
 import board from './reducers/board';
+import running from './reducers/running';
 
 const configureStore = () => {
   const middlewares = [];
@@ -11,7 +12,8 @@ const configureStore = () => {
 
   return createStore(
     combineReducers({
-      board
+      board,
+      running,
     }),
     applyMiddleware(...middlewares)
   );

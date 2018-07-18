@@ -9,8 +9,36 @@ class Cell extends Component {
     const { cell } = this.props;
 
     return (
-      <div className="box" style={{...styles.cell, backgroundColor: cell.alive ? 'lightgray' : 'black'}} />
+      <div
+        className="box"
+        style={{...styles.cell, backgroundColor: cell.active ? 'lightgray' : 'black'}}
+        onClick={() => this.onCellClick(cell)}
+      />
     )
+  }
+
+  onCellClick(cell) {
+    const { isGameRunning } = this.props;
+
+    if (!isGameRunning){
+      if (cell.active) {
+        this.deactivateCell();
+      } else{
+        this.activateCell();
+      }
+    }
+  }
+
+  activateCell() {
+    const { xPos, yPos, activateCell } = this.props;
+
+    activateCell(xPos, yPos);
+  }
+
+  deactivateCell() {
+    const { xPos, yPos, deactivateCell } = this.props;
+
+    deactivateCell(xPos, yPos);
   }
 }
 
