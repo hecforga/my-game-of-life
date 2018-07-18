@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Board from './Board';
+
 class App extends Component {
   render() {
     return (
@@ -9,6 +11,14 @@ class App extends Component {
             <div className="col">
               <div className="box">
                 <h1 className={styles.title}>El Juego de la Vida</h1>
+              </div>
+            </div>
+          </div>
+
+          <div className="row center">
+            <div className="col">
+              <div className="box">
+                <Board />
               </div>
             </div>
           </div>
