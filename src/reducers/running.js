@@ -1,9 +1,9 @@
 const initialState = false;
-
 const running = (state = initialState, action) => {
   switch (action.type) {
     case 'START_GAME':
       return true;
+    case 'FINISH_GAME':
     case 'RESET_GAME':
       return false;
     default:

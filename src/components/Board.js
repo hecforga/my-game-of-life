@@ -6,14 +6,11 @@ import * as actions from '../actions';
 
 import Cell from './Cell';
 
-const NUMBER_OF_ROWS = 10;
-const NUMBER_OF_COLUMNS = 10;
-
 class Board extends Component {
   componentWillMount() {
-    const { createEmptyBoard } = this.props;
+    const { numberOfRows, numberOfColumns, createEmptyBoard } = this.props;
 
-    createEmptyBoard(NUMBER_OF_ROWS, NUMBER_OF_COLUMNS);
+    createEmptyBoard(numberOfRows, numberOfColumns);
   }
 
   render() {

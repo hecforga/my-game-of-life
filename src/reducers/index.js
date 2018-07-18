@@ -1,5 +1,6 @@
 import * as fromBoard from './board';
 import * as fromRunning from './running';
+import * as fromStep from './step';
 
 export const getBoard = (state) =>
   fromBoard.getBoard(state.board);
@@ -12,3 +13,6 @@ export const isGameRunning = (state) =>
 
 export const canGameStart = (state) =>
   !isGameRunning(state) && fromBoard.getNumberOfActiveCells(state.board) >= 3;
+
+export const getStep = (state) =>
+  fromStep.getStep(state.step);

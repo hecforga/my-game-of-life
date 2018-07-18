@@ -1,6 +1,6 @@
 export const updateItemAtPosition = (array, pos, newItem) => {
   return array.map((item, index) => {
-    if(index !== pos) {
+    if (index !== pos) {
       return item;
     }
 

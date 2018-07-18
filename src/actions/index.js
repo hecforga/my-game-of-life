@@ -4,9 +4,26 @@ export const createEmptyBoard = (numberOfRows, numberOfColumns) => ({
   numberOfColumns,
 });
 
-export const startGame = () => ({
-  type: 'START_GAME',
-});
+export const startGame = (maxSteps, waitTime) => (dispatch) => {
+  dispatch({
+    type: 'START_GAME',
+  });
+  for (let i = 1; i <= maxSteps + 1; i++) {
+    setTimeout(() => {
+      if (i <= maxSteps) {
+        dispatch({
+          type: 'PERFORM_NEXT_STEP',
+          step: i,
+        });
+      }
+      if (i > maxSteps) {
+        dispatch({
+          type: 'FINISH_GAME',
+        });
+      }
+    }, i * waitTime);
+  }
+};
 
 export const resetGame = () => ({
   type: 'RESET_GAME',

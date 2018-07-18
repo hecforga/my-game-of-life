@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
-import { canGameStart } from '../reducers';
+import { canGameStart, isGameRunning } from '../reducers';
 import * as actions from '../actions';
 
 class ControlsContainer extends Component {
   render() {
-    const { canGameStart } = this.props;
+    const { canGameStart, isGameRunning } = this.props;
 
     return (
       <div className="row">
@@ -18,7 +18,7 @@ class ControlsContainer extends Component {
         </div>
         <div className="col">
           <div className="box">
-            <Button variant="contained" onClick={() => this.onResetearClick()}>Resetear</Button>
+            <Button variant="contained" disabled={isGameRunning} onClick={() => this.onResetearClick()}>Resetear</Button>
           </div>
         </div>
       </div>
@@ -26,9 +26,9 @@ class ControlsContainer extends Component {
   }
 
   onEmpezarClick() {
-    const { startGame } = this.props;
+    const { maxSteps, waitTime, startGame } = this.props;
 
-    startGame();
+    startGame(maxSteps, waitTime);
   }
 
   onResetearClick() {
@@ -46,6 +46,7 @@ const styles = ({
 
 const mapStateToProps = (state) => ({
   canGameStart: canGameStart(state),
+  isGameRunning: isGameRunning(state),
 });
 
 export default connect(
