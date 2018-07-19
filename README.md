@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Instructions to run
+[DEMO](https://hecforga.github.io/my-game-of-life)
+
+## Instructions to run locally
 
     git clone https://github.com/hecforga/my-game-of-life.git
     cd my-game-of-life
